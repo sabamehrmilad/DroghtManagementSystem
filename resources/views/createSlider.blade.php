@@ -62,8 +62,8 @@ textarea {
   resize: vertical;
 }
 
-    
-    
+
+
 </style>
 
 <!--
@@ -120,69 +120,81 @@ desired effect
                 <form  method="post" enctype="multipart/form-data" action="{{url('/slider')}}" >
                     {{csrf_field()}}
                     <label for="cikis-durumu">Urun </label>
-                    <select id="Urun" name="Urun">
+                    <select id="Urun" name="Urun_id">
                     <option value="">Urun sec</option>
                     @foreach($Urun as $urun)
-                      <option value="{{$urun->urun_adi}}">{{$urun->urun_adi}}</option>
+                      <option value="{{$urun->id}}">{{$urun->urun_adi}}</option>
                       @endforeach
                     </select>
 
+
+
                     <label for="il">il</label>
-                    <select id="il" name="il">
+                    <select id="il" name="il_id">
                      <option value="">Select an il</option>
                         @foreach ($il as $iller)
-                           <option value="{{ $iller->il_adi }}">{{ $iller->il_adi }}</option>
+                           <option value="{{ $iller->id }}">{{ $iller->il_adi }}</option>
                         @endforeach
                     </select>
 
                     <label for="ilce">Ilce</label>
-                     <select id="ilce" name="ilce">
+                     <select id="ilce" name="ilceler_id">
                       <option value="">Select an ilce</option>
                         @foreach ($ilceler as $ilce)
-                           <option value="{{ $ilce->ilce_adi }}">{{ $ilce->ilce_adi }}</option>
+                           <option value="{{ $ilce->id }}">{{ $ilce->ilce_adi }}</option>
                         @endforeach
                       </select>
 
-                    
-                                     
+
+
 
                     <div class="form-group col-md-12">
                         <label for="formGroupExampleInput2">EkimAlani</label>
-                        <input type="number" name="EkimAlani" class="form-control" id="formGroupExampleInput2" placeholder="EkimAlani girin">
+                        <input type="number" name="Ekim_Alani" class="form-control" id="formGroupExampleInput2" placeholder="EkimAlani girin">
                     </div>
-                    
-                    
+
+
                     <label for="cikis-durumu">Çıkış Durumu</label>
-                    <select id="cikis-durumu" name="cikis_durumu">
+                    <select id="cikis-durumu" name="cikisdurumu_id">
                     <option value="">Select an ilce</option>
                     @foreach($cikis as $Cikis)
-                      <option value="{{$Cikis->Cikis_Durumu}}">{{$Cikis->Cikis_Durumu}}</option>
+                      <option value="{{$Cikis->id}}">{{$Cikis->Cikis_adi}}</option>
                     @endforeach
-                      
+
                     </select>
-                    
+
                     <label for="gelisme-bakim-durumu">Gelişme ve Bakım Durumu</label>
-                    <select id="gelisme_bakim_durumu" name="gelisme_bakim_durumu">
+                    <select id="gelisme_bakim_durumu" name="gelismebakim_id">
                     <option value="">Select an ilce</option>
                     @foreach($gelisme as $Gelisme)
-                       <option value="{{$Gelisme->Gelisme}}">{{$Gelisme->Gelisme}}</option>
+                       <option value="{{$Gelisme->id}}">{{$Gelisme->Gelisme}}</option>
                        @endforeach
                      </select>
-                     
+
 
                      <label for="Ay">Ay</label>
-                    <select id="Ay" name="Ay">
+                    <select id="Ay" name="Ay_id">
                     <option value="">raporun bulundugu ayi secin</option>
                     @foreach($Ay as $ay)
-                       <option value="{{$ay->Ay_adi}}">{{$ay->Ay_adi}}</option>
+                       <option value="{{$ay->id}}">{{$ay->Ay_adi}}</option>
                        @endforeach
                      </select>
 
                      <label for="description">GozlemDurumu</label>
-                    
+
                      <textarea id="Gozlem-Durumu" name="Gozlem_Durumu" rows="5" cols="50"></textarea>
-                     
+
+                     <label for="yil">yil</label>
+                    <select id="yil" name="yil">
+                    <option value="">raporun bulundugu yili secin</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                      <option value="2024">2024</option>
+                     </select>
+
                     <button type="submit" value="save post" class="btn btn-success btn-lg ">ekle</button>
+
+
                 </form>
             </section>
             <!-- /.content -->
